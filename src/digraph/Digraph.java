@@ -29,6 +29,17 @@ public class Digraph {
 		}
 	}
 	
+	public Digraph(String in) throws NumberFormatException, IOException {
+		MyScanner sc = new MyScanner(in);
+		this.V = sc.nextInt();
+		int E = sc.nextInt();
+		adj = new HashMap<>();
+		for (int i=0; i<E; i++) {
+			int u=sc.nextInt(), v=sc.nextInt();
+			addEdge(u, v);
+		}
+	}
+	
 	public void addEdge(int u, int v) {
 		if (!adj.containsKey(u))	adj.put(u, new HashSet<>());
 		if (!adj.containsKey(v))	adj.put(v, new HashSet<>());
