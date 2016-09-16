@@ -31,8 +31,10 @@ public class DirectedDFS {
 	public void dfs(Digraph G, int v) {
 		marked.put(v, true);
 		for (int w: G.adj(v)) 
-			if (!marked.containsKey(w) || !marked.get(w))
+			if (!marked.containsKey(w) || !marked.get(w)) {
+				System.out.println("Now from "+v+" to "+w);
 				dfs(G, w);
+			}
 	}
 	
 	public boolean marked(int v) {
@@ -40,6 +42,7 @@ public class DirectedDFS {
 	}
 	
 	private void generateReachableVertices() {
+		reachableVertices = new HashSet<>();
 		for (int v: marked.keySet() ) {
 			if ( marked.get(v) )
 				reachableVertices.add(v);

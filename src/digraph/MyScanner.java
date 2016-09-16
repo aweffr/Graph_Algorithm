@@ -1,6 +1,8 @@
 package digraph;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -12,6 +14,11 @@ public class MyScanner {
 	
 	public MyScanner(InputStream in) {
 		br = new BufferedReader(new InputStreamReader(in));
+		tk = new StringTokenizer("");
+	}
+	
+	public MyScanner(String in) throws FileNotFoundException {
+		br = new BufferedReader(new FileReader(in));
 		tk = new StringTokenizer("");
 	}
 	
