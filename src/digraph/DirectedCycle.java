@@ -5,6 +5,7 @@ package digraph;
  * which it can recover by following edgeTo[] links.
  */
 
+import java.io.IOException;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.HashMap;
@@ -19,6 +20,7 @@ public class DirectedCycle {
 	public DirectedCycle(Digraph G) {
 		edgeTo = new HashMap<>();
 		marked = new HashMap<>();
+		onStack = new HashMap<>();
 		for (int v: G.vertices() ) {
 			if ( !marked(v) )
 				dfs(G, v);
@@ -62,9 +64,11 @@ public class DirectedCycle {
 	}
 	
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NumberFormatException, IOException {
 		// TODO Auto-generated method stub
-
+		Digraph G = new Digraph(args[0]);
+		DirectedCycle dcy = new DirectedCycle(G);
+		System.out.println(dcy.cycle());
 	}
 
 }

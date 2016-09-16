@@ -1,10 +1,13 @@
 package digraph;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.Set;
 
 public class Digraph {
@@ -27,6 +30,18 @@ public class Digraph {
 			int u=sc.nextInt(), v=sc.nextInt();
 			addEdge(u, v);
 		}
+	}
+	
+	public Digraph(String in, String sp) throws FileNotFoundException {
+		Scanner sc = new Scanner(new FileReader(in));
+		adj = new HashMap<>();
+		while( sc.hasNextLine() ) {
+			String[] s = sc.nextLine().split(sp);
+			int u=Integer.parseInt(s[0]), v=Integer.parseInt(s[1]);
+			addEdge(u, v);
+		}
+		this.V = adj.size();
+		sc.close();
 	}
 	
 	public Digraph(String in) throws NumberFormatException, IOException {
