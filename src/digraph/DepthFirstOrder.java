@@ -44,10 +44,10 @@ public class DepthFirstOrder {
 		return pre;
 	}
 	public Iterable<Integer> post() {
-		return pre;
+		return post;
 	}
 	public Iterable<Integer> reversePost() {
-		return pre;
+		return reversePost;
 	}
 	
 	public static void main(String[] args) {

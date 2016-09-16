@@ -83,9 +83,9 @@ public class KosarajuSCC {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(cnt +" components.\n");
-		sb.append("Each size is:\n");
-		for(int i=0; i<5; i++) {
-			sb.append(components().get(i).size()+" ");
+		sb.append("Size\tSet\n");
+		for(int i=0; i<5 && i<cnt; i++) {
+			sb.append(components().get(i).size()+"\t"+components().get(i)+"\n");
 		}
 		return sb.toString();
 	}
@@ -93,6 +93,8 @@ public class KosarajuSCC {
 	public static void main(String[] args) throws FileNotFoundException {
 		// $java KosarajuSCC filename splitter
 		Digraph G = new Digraph(args[0], args[1]);
+//		System.out.println(G);
+//		System.out.println(G.reverse());
 		KosarajuSCC scc = new KosarajuSCC(G);
 		System.out.print(scc);
 	}

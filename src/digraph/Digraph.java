@@ -78,6 +78,7 @@ public class Digraph {
 		return R;
 	}
 	
+	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(String.format("This graph is with %d vertices and %d edges.\n", V, E));
