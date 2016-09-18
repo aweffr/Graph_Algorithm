@@ -67,6 +67,10 @@ public class EdgeWeightedDigraph {
 		return out;
 	}
 	
+	public Iterable<Integer> vertices() {
+		return adj.keySet();
+	}
+	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(String.format("This graph contains %d vertices and %d edges.\n", V, E));
